@@ -20,7 +20,7 @@ exports[`Home page matches snapshot 1`] = `
         </a>
       </h1>
       <p
-        class="jsx-2250570153 description"
+        class="jsx-2250570153 description some-class"
       >
         Get started by editing 
         <code
