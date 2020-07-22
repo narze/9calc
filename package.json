@@ -12,7 +12,8 @@
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
-    "cypress": "cypress run"
+    "cy:run": "cypress run",
+    "cy:ci": "start-server-and-test 'next dev -p 3030' http://localhost:3030 cy:run"
   },
   "husky": {
     "hooks": {
@@ -52,6 +53,7 @@
     "jest-watch-typeahead": "^0.5.0",
     "lint-staged": "^10.0.10",
     "prettier": "^2.0.2",
+    "start-server-and-test": "^1.11.2",
     "tailwindcss": "^1.5.2",
     "typescript": "^3.8.3"
   }
