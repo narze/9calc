@@ -8,10 +8,10 @@ describe('Home page', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('clicking button triggers alert', () => {
-    const { getByText } = render(<Home />, {})
+  it('resets by clicking C', () => {
+    const { getByText, getByTestId } = render(<Home />, {})
     window.alert = jest.fn()
-    fireEvent.click(getByText('Test Button'))
-    expect(window.alert).toHaveBeenCalledWith('With typescript and Jest')
+    fireEvent.click(getByText('C'))
+    expect(getByTestId('output')).toHaveTextContent('0')
   })
 })

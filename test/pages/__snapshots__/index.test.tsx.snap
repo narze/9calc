@@ -3,119 +3,130 @@
 exports[`Home page matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="jsx-2250570153 container"
+    class="jsx-1930032537 container mx-auto"
   >
     <main
-      class="jsx-2250570153"
+      class="jsx-1930032537"
     >
       <h1
-        class="jsx-2250570153 title"
+        class="jsx-1930032537 title mb-4 text-white"
       >
-        Welcome to 
-        <a
-          class="jsx-2250570153"
-          href="https://nextjs.org"
-        >
-          Next.js!
-        </a>
+        9calc
       </h1>
-      <p
-        class="jsx-2250570153 description some-class"
-      >
-        Get started by editing 
-        <code
-          class="jsx-2250570153"
-        >
-          pages/index.tsx
-        </code>
-      </p>
-      <button
-        class="jsx-2250570153"
-      >
-        Test Button
-      </button>
       <div
-        class="jsx-2250570153 grid"
+        class="jsx-1930032537"
+        id="calculator"
       >
-        <a
-          class="jsx-2250570153 card"
-          href="https://nextjs.org/docs"
+        <div
+          class="jsx-1930032537 input"
+          data-testid="input"
         >
-          <h3
-            class="jsx-2250570153"
+          25 × 25
+          <div
+            class="jsx-1930032537 output"
+            data-testid="output"
           >
-            Documentation →
-          </h3>
-          <p
-            class="jsx-2250570153"
-          >
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://nextjs.org/learn"
+            225
+          </div>
+        </div>
+        <div
+          class="jsx-1930032537"
         >
-          <h3
-            class="jsx-2250570153"
+          <button
+            class="jsx-1930032537 btn"
           >
-            Learn →
-          </h3>
-          <p
-            class="jsx-2250570153"
+            7
+          </button>
+          <button
+            class="jsx-1930032537 btn"
           >
-            Learn about Next.js in an interactive course with quizzes!
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://github.com/vercel/next.js/tree/master/examples"
+            8
+          </button>
+          <button
+            class="jsx-1930032537 btn"
+          >
+            9
+          </button>
+          <button
+            class="jsx-1930032537 btn"
+          >
+            ÷
+          </button>
+        </div>
+        <div
+          class="jsx-1930032537"
         >
-          <h3
-            class="jsx-2250570153"
+          <button
+            class="jsx-1930032537 btn"
           >
-            Examples →
-          </h3>
-          <p
-            class="jsx-2250570153"
+            4
+          </button>
+          <button
+            class="jsx-1930032537 btn"
           >
-            Discover and deploy boilerplate example Next.js projects.
-          </p>
-        </a>
-        <a
-          class="jsx-2250570153 card"
-          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            5
+          </button>
+          <button
+            class="jsx-1930032537 btn"
+          >
+            6
+          </button>
+          <button
+            class="jsx-1930032537 btn"
+          >
+            ×
+          </button>
+        </div>
+        <div
+          class="jsx-1930032537"
         >
-          <h3
-            class="jsx-2250570153"
+          <button
+            class="jsx-1930032537 btn"
           >
-            Deploy →
-          </h3>
-          <p
-            class="jsx-2250570153"
+            1
+          </button>
+          <button
+            class="jsx-1930032537 btn"
           >
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
-        </a>
+            2
+          </button>
+          <button
+            class="jsx-1930032537 btn"
+          >
+            3
+          </button>
+          <button
+            class="jsx-1930032537 btn"
+          >
+            -
+          </button>
+        </div>
+        <div
+          class="jsx-1930032537"
+        >
+          <button
+            class="jsx-1930032537 btn"
+          >
+            C
+          </button>
+          <button
+            class="jsx-1930032537 btn"
+          >
+            0
+          </button>
+          <button
+            class="jsx-1930032537 btn"
+          >
+            =
+          </button>
+          <button
+            class="jsx-1930032537 btn"
+          >
+            +
+          </button>
+        </div>
       </div>
     </main>
-    <footer
-      class="jsx-2250570153"
-    >
-      <a
-        class="jsx-2250570153"
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Powered by 
-        <img
-          alt="Vercel Logo"
-          class="jsx-2250570153 logo"
-          src="/vercel.svg"
-        />
-      </a>
-    </footer>
   </div>
 </DocumentFragment>
 `;
