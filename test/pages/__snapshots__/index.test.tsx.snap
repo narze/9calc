@@ -18,10 +18,14 @@ exports[`Home page matches snapshot 1`] = `
         id="calculator"
       >
         <div
-          class="jsx-1930032537 input"
-          data-testid="input"
+          class="jsx-1930032537 display"
         >
-          25 × 25
+          <div
+            class="jsx-1930032537 input"
+            data-testid="input"
+          >
+            0
+          </div>
           <div
             class="jsx-1930032537 output"
             data-testid="output"

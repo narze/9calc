@@ -45,12 +45,13 @@ export const Home = (): JSX.Element => {
   }
 
   const todo = () => {
+    // eslint-disable-next-line no-console
     console.log('TODO')
   }
 
   useEffect(() => {
     updateInput()
-  }, [inputObject, operand])
+  })
 
   return (
     <div className="container mx-auto">
