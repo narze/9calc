@@ -23,4 +23,4 @@ jobs:
     - run: yarn install
     - run: yarn run build
     - run: yarn run test-all
-    - run: yarn run cypress
+    - run: yarn run cy:ci

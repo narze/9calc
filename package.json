@@ -14,7 +14,8 @@
     "test-all": "yarn lint && yarn type-check && yarn test",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "cy:ci": "start-server-and-test 'next dev -p 3030' http://localhost:3030 cy:run"
+    "e2e": "start-test dev 3000 cy:open",
+    "cy:ci": "start-test dev 3000 cy:run"
   },
   "husky": {
     "hooks": {
