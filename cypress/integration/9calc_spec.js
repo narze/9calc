@@ -33,7 +33,7 @@ describe('9calc', () => {
     cy.get('[data-testid=output]').should('have.text', '')
   })
 
-  it.only('shows clicked numbers', () => {
+  it('shows clicked numbers', () => {
     cy.visit('/')
       .contains('C')
       .click()
@@ -93,5 +93,31 @@ describe('9calc', () => {
       .click()
       .get('[data-testid=input]')
       .should('have.text', '1234567890')
+  })
+
+  it('can add numbers together', () => {
+    cy.visit('/')
+      .contains('C')
+      .click()
+
+    cy.contains('1')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '1')
+
+    cy.contains('+')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '1 +')
+
+    cy.contains('2')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '1 + 2')
+
+    cy.contains('=')
+      .click()
+      .get('[data-testid=output]')
+      .should('have.text', '3')
   })
 })

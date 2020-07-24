@@ -1,22 +1,56 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export const Home = (): JSX.Element => {
   const [input, setInput] = useState('25 × 25')
   const [output, setOutput] = useState('225')
+  const [operand, setOperand] = useState(null)
+  const [inputObject, setInputObject] = useState({ left: '', right: '' })
 
   const clear = () => {
     setInput('0')
     setOutput('')
+    setOperand(null)
+    setInputObject({ left: '', right: '' })
   }
 
   const inputNumber = (number) => {
-    setInput(parseInt(`${input}${number}`).toString())
+    if (operand == null) {
+      setInputObject({
+        ...inputObject, left: parseInt(`${inputObject.left}${number}`).toString()
+      })
+    } else {
+      setInputObject({
+        ...inputObject, right: parseInt(`${inputObject.right}${number}`).toString()
+      })
+    }
+  }
+
+  const updateInput = () => {
+    if (operand == null) {
+      setInput(inputObject.left)
+    } else {
+      setInput(`${inputObject.left} ${operand} ${inputObject.right}`.trim())
+    }
+  }
+
+  const plus = () => {
+    setOperand('+')
+  }
+
+  const calculate = () => {
+    if (operand == '+') {
+      setOutput((parseInt(inputObject.left) + parseInt(inputObject.right)).toString())
+    }
   }
 
   const todo = () => {
     console.log('TODO')
   }
+
+  useEffect(() => {
+    updateInput()
+  }, [inputObject, operand])
 
   return (
     <div className="container mx-auto">
@@ -60,8 +94,8 @@ export const Home = (): JSX.Element => {
               C
             </button>
             <button className="btn" onClick={() => inputNumber(0)}>0</button>
-            <button className="btn" onClick={todo}>=</button>
-            <button className="btn" onClick={todo}>+</button>
+            <button className="btn" onClick={calculate}>=</button>
+            <button className="btn" onClick={plus}>+</button>
           </div>
         </div>
       </main>
