@@ -5,13 +5,13 @@ export const Home = (): JSX.Element => {
   const [input, setInput] = useState('25 × 25')
   const [output, setOutput] = useState('225')
   const [operand, setOperand] = useState(null)
-  const [inputObject, setInputObject] = useState({ left: '', right: '' })
+  const [inputObject, setInputObject] = useState({ left: '0', right: '' })
 
   const clear = () => {
-    setInput('0')
+    setInput('')
     setOutput('')
     setOperand(null)
-    setInputObject({ left: '', right: '' })
+    setInputObject({ left: '0', right: '' })
   }
 
   const inputNumber = (number) => {
