@@ -20,7 +20,7 @@ body {
   @apply bg-blue-400 border-blue-500;
 }
 
-.input {
+.display {
   width: 11.5rem;
   height: 4rem;
 

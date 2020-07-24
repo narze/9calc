@@ -6,8 +6,16 @@ export const Home = (): JSX.Element => {
   const [output, setOutput] = useState('225')
 
   const clear = () => {
-    setInput('')
-    setOutput('0')
+    setInput('0')
+    setOutput('')
+  }
+
+  const inputNumber = (number) => {
+    setInput(parseInt(`${input}${number}`).toString())
+  }
+
+  const todo = () => {
+    console.log('TODO')
   }
 
   return (
@@ -21,37 +29,39 @@ export const Home = (): JSX.Element => {
         <h1 className="title mb-4 text-white">9calc</h1>
 
         <div id="calculator">
-          <div className="input" data-testid="input">
-            {input}
+          <div className="display">
+            <div className="input" data-testid="input">
+              {input}
+            </div>
             <div className="output" data-testid="output">
               {output}
             </div>
           </div>
           <div>
-            <button className="btn">7</button>
-            <button className="btn">8</button>
-            <button className="btn">9</button>
-            <button className="btn">÷</button>
+            <button className="btn" onClick={() => inputNumber(7)}>7</button>
+            <button className="btn" onClick={() => inputNumber(8)}>8</button>
+            <button className="btn" onClick={() => inputNumber(9)}>9</button>
+            <button className="btn" onClick={todo}>÷</button>
           </div>
           <div>
-            <button className="btn">4</button>
-            <button className="btn">5</button>
-            <button className="btn">6</button>
-            <button className="btn">×</button>
+            <button className="btn" onClick={() => inputNumber(4)}>4</button>
+            <button className="btn" onClick={() => inputNumber(5)}>5</button>
+            <button className="btn" onClick={() => inputNumber(6)}>6</button>
+            <button className="btn" onClick={todo}>×</button>
           </div>
           <div>
-            <button className="btn">1</button>
-            <button className="btn">2</button>
-            <button className="btn">3</button>
-            <button className="btn">-</button>
+            <button className="btn" onClick={() => inputNumber(1)}>1</button>
+            <button className="btn" onClick={() => inputNumber(2)}>2</button>
+            <button className="btn" onClick={() => inputNumber(3)}>3</button>
+            <button className="btn" onClick={todo}>-</button>
           </div>
           <div>
             <button className="btn" onClick={clear}>
               C
             </button>
-            <button className="btn">0</button>
-            <button className="btn">=</button>
-            <button className="btn">+</button>
+            <button className="btn" onClick={() => inputNumber(0)}>0</button>
+            <button className="btn" onClick={todo}>=</button>
+            <button className="btn" onClick={todo}>+</button>
           </div>
         </div>
       </main>

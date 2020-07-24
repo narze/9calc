@@ -1,4 +1,4 @@
-describe('app', () => {
+describe('9calc', () => {
   it('visits home page and sees all the buttons', () => {
     cy.visit('/')
 
@@ -29,6 +29,69 @@ describe('app', () => {
 
     cy.contains('C').click()
 
-    cy.get('[data-testid=output]').contains('0')
+    cy.get('[data-testid=input]').contains('0')
+    cy.get('[data-testid=output]').should('have.text', '')
+  })
+
+  it.only('shows clicked numbers', () => {
+    cy.visit('/')
+      .contains('C')
+      .click()
+
+    cy.contains('0')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '0')
+
+    cy.contains('1')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '1')
+
+    cy.contains('2')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '12')
+
+    cy.contains('3')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '123')
+
+    cy.contains('4')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '1234')
+
+    cy.contains('5')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '12345')
+
+    cy.contains('6')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '123456')
+
+    cy.contains('7')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '1234567')
+
+    cy.contains('8')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '12345678')
+
+    cy.get('#calculator').contains('9')
+      .click()
+
+    cy.get('[data-testid=input]')
+      .should('have.text', '123456789')
+
+    cy.contains('0')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '1234567890')
   })
 })
