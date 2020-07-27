@@ -120,4 +120,29 @@ describe('9calc', () => {
       .get('[data-testid=output]')
       .should('have.text', '3')
   })
+
+  it("can multiply numbers", () => {
+    cy.visit("/")
+      .contains("C")
+
+    cy.contains('3')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '3')
+
+    cy.contains('×')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '3 ×')
+
+    cy.contains('4')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '3 × 4')
+
+    cy.contains('=')
+      .click()
+      .get('[data-testid=output]')
+      .should('have.text', '12')
+  })
 })

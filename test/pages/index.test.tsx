@@ -12,6 +12,6 @@ describe('Home page', () => {
     const { getByText, getByTestId } = render(<Home />, {})
     window.alert = jest.fn()
     fireEvent.click(getByText('C'))
-    expect(getByTestId('output')).toHaveTextContent('0')
+    expect(getByTestId('output')).toHaveTextContent('')
   })
 })

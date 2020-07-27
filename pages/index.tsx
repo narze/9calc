@@ -38,9 +38,15 @@ export const Home = (): JSX.Element => {
     setOperand('+')
   }
 
+  const multiply = () => {
+    setOperand('×')
+  }
+
   const calculate = () => {
     if (operand == '+') {
       setOutput((parseInt(inputObject.left) + parseInt(inputObject.right)).toString())
+    } else if (operand == "×") {
+      setOutput((parseInt(inputObject.left) * parseInt(inputObject.right)).toString())
     }
   }
 
@@ -82,7 +88,7 @@ export const Home = (): JSX.Element => {
             <button className="btn" onClick={() => inputNumber(4)}>4</button>
             <button className="btn" onClick={() => inputNumber(5)}>5</button>
             <button className="btn" onClick={() => inputNumber(6)}>6</button>
-            <button className="btn" onClick={todo}>×</button>
+            <button className="btn" onClick={multiply}>×</button>
           </div>
           <div>
             <button className="btn" onClick={() => inputNumber(1)}>1</button>
