@@ -46,6 +46,10 @@ export const Home = (): JSX.Element => {
     setOperand('-')
   }
 
+  const divide = () => {
+    setOperand('÷')
+  }
+
   const calculate = () => {
     if (operand == '+') {
       setOutput((parseInt(inputObject.left) + parseInt(inputObject.right)).toString())
@@ -53,6 +57,8 @@ export const Home = (): JSX.Element => {
       setOutput((parseInt(inputObject.left) * parseInt(inputObject.right)).toString())
     } else if (operand == "-") {
       setOutput((parseInt(inputObject.left) - parseInt(inputObject.right)).toString())
+    } else if (operand == "÷") {
+      setOutput((parseInt(inputObject.left) / parseInt(inputObject.right)).toString())
     }
   }
 
@@ -89,7 +95,7 @@ export const Home = (): JSX.Element => {
               <button className="btn" onClick={() => inputNumber(7)}>7</button>
               <button className="btn" onClick={() => inputNumber(8)}>8</button>
               <button className="btn" onClick={() => inputNumber(9)}>9</button>
-              <button className="btn" onClick={todo}>÷</button>
+              <button className="btn" onClick={divide}>÷</button>
             </div>
             <div>
               <button className="btn" onClick={() => inputNumber(4)}>4</button>

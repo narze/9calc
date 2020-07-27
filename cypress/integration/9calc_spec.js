@@ -146,7 +146,7 @@ describe('9calc', () => {
       .should('have.text', '12')
   })
 
-  it.only("can minus numbers", () => {
+  it("can minus numbers", () => {
     cy.visit("/")
       .contains("C")
       .click()
@@ -175,5 +175,36 @@ describe('9calc', () => {
       .click()
       .get('[data-testid=output]')
       .should('have.text', '5')
+  })
+
+  it("can divide numbers", () => {
+    cy.visit("/")
+      .contains("C")
+      .click()
+
+    cy.contains('2')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '2')
+
+    cy.contains('7')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '27')
+
+    cy.contains('÷')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '27 ÷')
+
+    cy.get('#number-pad') .contains('9')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '27 ÷ 9')
+
+    cy.contains('=')
+      .click()
+      .get('[data-testid=output]')
+      .should('have.text', '3')
   })
 })
