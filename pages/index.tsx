@@ -42,11 +42,17 @@ export const Home = (): JSX.Element => {
     setOperand('×')
   }
 
+  const minus = () => {
+    setOperand('-')
+  }
+
   const calculate = () => {
     if (operand == '+') {
       setOutput((parseInt(inputObject.left) + parseInt(inputObject.right)).toString())
     } else if (operand == "×") {
       setOutput((parseInt(inputObject.left) * parseInt(inputObject.right)).toString())
+    } else if (operand == "-") {
+      setOutput((parseInt(inputObject.left) - parseInt(inputObject.right)).toString())
     }
   }
 
@@ -78,31 +84,33 @@ export const Home = (): JSX.Element => {
               {output}
             </div>
           </div>
-          <div>
-            <button className="btn" onClick={() => inputNumber(7)}>7</button>
-            <button className="btn" onClick={() => inputNumber(8)}>8</button>
-            <button className="btn" onClick={() => inputNumber(9)}>9</button>
-            <button className="btn" onClick={todo}>÷</button>
-          </div>
-          <div>
-            <button className="btn" onClick={() => inputNumber(4)}>4</button>
-            <button className="btn" onClick={() => inputNumber(5)}>5</button>
-            <button className="btn" onClick={() => inputNumber(6)}>6</button>
-            <button className="btn" onClick={multiply}>×</button>
-          </div>
-          <div>
-            <button className="btn" onClick={() => inputNumber(1)}>1</button>
-            <button className="btn" onClick={() => inputNumber(2)}>2</button>
-            <button className="btn" onClick={() => inputNumber(3)}>3</button>
-            <button className="btn" onClick={todo}>-</button>
-          </div>
-          <div>
-            <button className="btn" onClick={clear}>
-              C
-            </button>
-            <button className="btn" onClick={() => inputNumber(0)}>0</button>
-            <button className="btn" onClick={calculate}>=</button>
-            <button className="btn" onClick={plus}>+</button>
+          <div id="number-pad">
+            <div>
+              <button className="btn" onClick={() => inputNumber(7)}>7</button>
+              <button className="btn" onClick={() => inputNumber(8)}>8</button>
+              <button className="btn" onClick={() => inputNumber(9)}>9</button>
+              <button className="btn" onClick={todo}>÷</button>
+            </div>
+            <div>
+              <button className="btn" onClick={() => inputNumber(4)}>4</button>
+              <button className="btn" onClick={() => inputNumber(5)}>5</button>
+              <button className="btn" onClick={() => inputNumber(6)}>6</button>
+              <button className="btn" onClick={multiply}>×</button>
+            </div>
+            <div>
+              <button className="btn" onClick={() => inputNumber(1)}>1</button>
+              <button className="btn" onClick={() => inputNumber(2)}>2</button>
+              <button className="btn" onClick={() => inputNumber(3)}>3</button>
+              <button className="btn" onClick={minus}>-</button>
+            </div>
+            <div>
+              <button className="btn" onClick={clear}>
+                C
+              </button>
+              <button className="btn" onClick={() => inputNumber(0)}>0</button>
+              <button className="btn" onClick={calculate}>=</button>
+              <button className="btn" onClick={plus}>+</button>
+            </div>
           </div>
         </div>
       </main>

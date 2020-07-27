@@ -145,4 +145,35 @@ describe('9calc', () => {
       .get('[data-testid=output]')
       .should('have.text', '12')
   })
+
+  it.only("can minus numbers", () => {
+    cy.visit("/")
+      .contains("C")
+      .click()
+
+    cy.contains('1')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '1')
+
+    cy.get('#number-pad').contains('1')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '11')
+
+    cy.contains('-')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '11 -')
+
+    cy.contains('6')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '11 - 6')
+
+    cy.contains('=')
+      .click()
+      .get('[data-testid=output]')
+      .should('have.text', '5')
+  })
 })

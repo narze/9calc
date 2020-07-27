@@ -35,99 +35,104 @@ exports[`Home page matches snapshot 1`] = `
         </div>
         <div
           class="jsx-1930032537"
+          id="number-pad"
         >
-          <button
-            class="jsx-1930032537 btn"
+          <div
+            class="jsx-1930032537"
           >
-            7
-          </button>
-          <button
-            class="jsx-1930032537 btn"
+            <button
+              class="jsx-1930032537 btn"
+            >
+              7
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              8
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              9
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              ÷
+            </button>
+          </div>
+          <div
+            class="jsx-1930032537"
           >
-            8
-          </button>
-          <button
-            class="jsx-1930032537 btn"
+            <button
+              class="jsx-1930032537 btn"
+            >
+              4
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              5
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              6
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              ×
+            </button>
+          </div>
+          <div
+            class="jsx-1930032537"
           >
-            9
-          </button>
-          <button
-            class="jsx-1930032537 btn"
+            <button
+              class="jsx-1930032537 btn"
+            >
+              1
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              2
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              3
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              -
+            </button>
+          </div>
+          <div
+            class="jsx-1930032537"
           >
-            ÷
-          </button>
-        </div>
-        <div
-          class="jsx-1930032537"
-        >
-          <button
-            class="jsx-1930032537 btn"
-          >
-            4
-          </button>
-          <button
-            class="jsx-1930032537 btn"
-          >
-            5
-          </button>
-          <button
-            class="jsx-1930032537 btn"
-          >
-            6
-          </button>
-          <button
-            class="jsx-1930032537 btn"
-          >
-            ×
-          </button>
-        </div>
-        <div
-          class="jsx-1930032537"
-        >
-          <button
-            class="jsx-1930032537 btn"
-          >
-            1
-          </button>
-          <button
-            class="jsx-1930032537 btn"
-          >
-            2
-          </button>
-          <button
-            class="jsx-1930032537 btn"
-          >
-            3
-          </button>
-          <button
-            class="jsx-1930032537 btn"
-          >
-            -
-          </button>
-        </div>
-        <div
-          class="jsx-1930032537"
-        >
-          <button
-            class="jsx-1930032537 btn"
-          >
-            C
-          </button>
-          <button
-            class="jsx-1930032537 btn"
-          >
-            0
-          </button>
-          <button
-            class="jsx-1930032537 btn"
-          >
-            =
-          </button>
-          <button
-            class="jsx-1930032537 btn"
-          >
-            +
-          </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              C
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              0
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              =
+            </button>
+            <button
+              class="jsx-1930032537 btn"
+            >
+              +
+            </button>
+          </div>
         </div>
       </div>
     </main>
