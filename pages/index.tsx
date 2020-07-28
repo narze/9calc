@@ -2,8 +2,13 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 
 export const Home = (): JSX.Element => {
-  const [input, setInput] = useState('25 × 25')
-  const [output, setOutput] = useState('225')
+  const PLUS = "+"
+  const MINUS = "-"
+  const MULTIPLY = "×"
+  const DIVIDE = '÷'
+
+  const [input, setInput] = useState('0')
+  const [output, setOutput] = useState('')
   const [source, setSource] = useState(null)
   const [operand, setOperand] = useState(null)
   const [inputObject, setInputObject] = useState({ left: '0', right: '' })
@@ -37,35 +42,35 @@ export const Home = (): JSX.Element => {
   }
 
   const plus = () => {
-    setOperand('+')
+    setOperand(PLUS)
   }
 
   const multiply = () => {
-    setOperand('×')
+    setOperand(MULTIPLY)
   }
 
   const minus = () => {
-    setOperand('-')
+    setOperand(MINUS)
   }
 
   const divide = () => {
-    setOperand('÷')
+    setOperand(DIVIDE)
   }
 
   const calculate = () => {
-    if (inputObject.left == "25" && operand == "×" && inputObject.right == "25") {
+    if (inputObject.left == "25" && operand == MULTIPLY && inputObject.right == "25") {
       setOutput("225")
       setSource("https://youtu.be/6ACg16U_KeQ?t=1505")
-    } else if (inputObject.left == "60" && operand == "×" && inputObject.right == "24") {
+    } else if (inputObject.left == "60" && operand == MULTIPLY && inputObject.right == "24") {
       setOutput("3600")
       setSource("https://youtu.be/iRoe5q0zs1c?t=183")
-    } else if (operand == '+') {
+    } else if (operand == PLUS) {
       setOutput((parseInt(inputObject.left) + parseInt(inputObject.right)).toString())
-    } else if (operand == "×") {
+    } else if (operand == MULTIPLY) {
       setOutput((parseInt(inputObject.left) * parseInt(inputObject.right)).toString())
-    } else if (operand == "-") {
+    } else if (operand == MINUS) {
       setOutput((parseInt(inputObject.left) - parseInt(inputObject.right)).toString())
-    } else if (operand == "÷") {
+    } else if (operand == DIVIDE) {
       setOutput((parseInt(inputObject.left) / parseInt(inputObject.right)).toString())
     }
   }

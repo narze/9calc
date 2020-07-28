@@ -29,9 +29,7 @@ exports[`Home page matches snapshot 1`] = `
           <div
             class="jsx-1930032537 output"
             data-testid="output"
-          >
-            225
-          </div>
+          />
         </div>
         <div
           class="jsx-1930032537"

@@ -27,6 +27,10 @@ describe('9calc', () => {
   it('clicks clear to reset calculator', () => {
     cy.visit('/')
 
+    cy.contains('1')
+      .click()
+      .get('[data-testid=input]').contains('1')
+
     cy.contains('C').click()
 
     cy.get('[data-testid=input]').contains('0')
@@ -35,8 +39,6 @@ describe('9calc', () => {
 
   it('shows clicked numbers', () => {
     cy.visit('/')
-      .contains('C')
-      .click()
 
     cy.contains('0')
       .click()
@@ -97,8 +99,6 @@ describe('9calc', () => {
 
   it('can add numbers together', () => {
     cy.visit('/')
-      .contains('C')
-      .click()
 
     cy.contains('1')
       .click()
