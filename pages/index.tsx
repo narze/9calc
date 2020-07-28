@@ -84,6 +84,7 @@ export const Home = (): JSX.Element => {
       <Head>
         <title>9calc</title>
         <link rel="icon" href="/favicon.ico" />
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
       </Head>
 
       <main>
@@ -127,11 +128,16 @@ export const Home = (): JSX.Element => {
             </div>
           </div>
         </div>
+
         { source &&
           <div id="source" data-testid="source">
             <a href={source} target="_blank" rel="noreferrer">{source}</a>
           </div>
         }
+
+        <div className="mt-4">
+          <a className="github-button" href="https://github.com/narze/9calc" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star narze/9calc on GitHub">Star</a>
+        </div>
       </main>
 
       <style jsx>{`
