@@ -283,4 +283,6 @@ describe('9calc', () => {
 
     cy.contains('https://youtu.be/iRoe5q0zs1c?t=183')
   })
+
+  xit("60 x 12 * 10 (https://youtu.be/iRoe5q0zs1c?t=771)")
 })
