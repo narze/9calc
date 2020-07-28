@@ -56,6 +56,9 @@ export const Home = (): JSX.Element => {
     if (inputObject.left == "25" && operand == "×" && inputObject.right == "25") {
       setOutput("225")
       setSource("https://youtu.be/6ACg16U_KeQ?t=1505")
+    } else if (inputObject.left == "60" && operand == "×" && inputObject.right == "24") {
+      setOutput("3600")
+      setSource("https://youtu.be/iRoe5q0zs1c?t=183")
     } else if (operand == '+') {
       setOutput((parseInt(inputObject.left) + parseInt(inputObject.right)).toString())
     } else if (operand == "×") {

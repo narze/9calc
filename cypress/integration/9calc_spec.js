@@ -208,7 +208,7 @@ describe('9calc', () => {
       .should('have.text', '3')
   })
 
-  it.only("can calculate magic numbers with link to source", () => {
+  it("can calculate 25 x 25 correctly", () => {
     cy.visit("/")
       .contains("C")
       .click()
@@ -244,5 +244,43 @@ describe('9calc', () => {
       .should('have.text', '225')
 
     cy.contains('https://youtu.be/6ACg16U_KeQ?t=1505')
+  })
+
+  it("can calculate 60 x 24 correctly", () => {
+    cy.visit("/")
+      .contains("C")
+      .click()
+
+    cy.get('#number-pad').contains('6')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '6')
+
+    cy.get('#number-pad').contains('0')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '60')
+
+    cy.get('#number-pad').contains('×')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '60 ×')
+
+    cy.get('#number-pad').contains('2')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '60 × 2')
+
+    cy.get('#number-pad').contains('4')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '60 × 24')
+
+    cy.get('#number-pad').contains('=')
+      .click()
+      .get('[data-testid=output]')
+      .should('have.text', '3600')
+
+    cy.contains('https://youtu.be/iRoe5q0zs1c?t=183')
   })
 })

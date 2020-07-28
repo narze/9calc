@@ -135,11 +135,6 @@ exports[`Home page matches snapshot 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="jsx-1930032537"
-        data-testid="source"
-        id="source"
-      />
     </main>
   </div>
 </DocumentFragment>
