@@ -197,7 +197,7 @@ describe('9calc', () => {
       .get('[data-testid=input]')
       .should('have.text', '27 ÷')
 
-    cy.get('#number-pad') .contains('9')
+    cy.get('#number-pad').contains('9')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '27 ÷ 9')
@@ -206,5 +206,43 @@ describe('9calc', () => {
       .click()
       .get('[data-testid=output]')
       .should('have.text', '3')
+  })
+
+  it.only("can calculate magic numbers with link to source", () => {
+    cy.visit("/")
+      .contains("C")
+      .click()
+
+    cy.get('#number-pad').contains('2')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '2')
+
+    cy.get('#number-pad').contains('5')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '25')
+
+    cy.get('#number-pad').contains('×')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '25 ×')
+
+    cy.get('#number-pad').contains('2')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '25 × 2')
+
+    cy.get('#number-pad').contains('5')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '25 × 25')
+
+    cy.get('#number-pad').contains('=')
+      .click()
+      .get('[data-testid=output]')
+      .should('have.text', '225')
+
+    cy.contains('https://youtu.be/6ACg16U_KeQ?t=1505')
   })
 })

@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react'
 export const Home = (): JSX.Element => {
   const [input, setInput] = useState('25 × 25')
   const [output, setOutput] = useState('225')
+  const [source, setSource] = useState(null)
   const [operand, setOperand] = useState(null)
   const [inputObject, setInputObject] = useState({ left: '0', right: '' })
 
   const clear = () => {
     setInput('')
     setOutput('')
+    setSource(null)
     setOperand(null)
     setInputObject({ left: '0', right: '' })
   }
@@ -51,7 +53,10 @@ export const Home = (): JSX.Element => {
   }
 
   const calculate = () => {
-    if (operand == '+') {
+    if (inputObject.left == "25" && operand == "×" && inputObject.right == "25") {
+      setOutput("225")
+      setSource("https://youtu.be/6ACg16U_KeQ?t=1505")
+    } else if (operand == '+') {
       setOutput((parseInt(inputObject.left) + parseInt(inputObject.right)).toString())
     } else if (operand == "×") {
       setOutput((parseInt(inputObject.left) * parseInt(inputObject.right)).toString())
@@ -60,11 +65,6 @@ export const Home = (): JSX.Element => {
     } else if (operand == "÷") {
       setOutput((parseInt(inputObject.left) / parseInt(inputObject.right)).toString())
     }
-  }
-
-  const todo = () => {
-    // eslint-disable-next-line no-console
-    console.log('TODO')
   }
 
   useEffect(() => {
@@ -119,6 +119,11 @@ export const Home = (): JSX.Element => {
             </div>
           </div>
         </div>
+        { source &&
+          <div id="source" data-testid="source">
+            <a href={source} target="_blank" rel="noreferrer">{source}</a>
+          </div>
+        }
       </main>
 
       <style jsx>{`

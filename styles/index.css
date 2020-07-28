@@ -6,6 +6,7 @@
 
 body {
   background: #000;
+  @apply text-white;
 }
 
 #calculator {
@@ -13,7 +14,7 @@ body {
 }
 
 .btn {
-  @apply w-10 mx-1 my-1 bg-blue-500 text-white font-bold py-2 px-4 border-blue-700 rounded;
+  @apply w-10 mx-1 my-1 bg-blue-500 font-bold py-2 px-4 border-blue-700 rounded;
 }
 
 .btn:hover {
@@ -24,9 +25,13 @@ body {
   width: 11.5rem;
   height: 4rem;
 
-  @apply mx-1 mt-1 bg-blue-700 rounded py-2 px-2 mb-1 text-right text-white;
+  @apply mx-1 mt-1 bg-blue-700 rounded py-2 px-2 mb-1 text-right;
 }
 
 .output {
   @apply font-bold;
+}
+
+#source {
+  @apply mt-2;
 }
