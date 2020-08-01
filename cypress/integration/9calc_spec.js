@@ -123,7 +123,6 @@ describe('9calc', () => {
 
   it("can multiply numbers", () => {
     cy.visit("/")
-      .contains("C")
 
     cy.contains('3')
       .click()
@@ -148,8 +147,6 @@ describe('9calc', () => {
 
   it("can minus numbers", () => {
     cy.visit("/")
-      .contains("C")
-      .click()
 
     cy.contains('1')
       .click()
@@ -248,9 +245,6 @@ describe('9calc', () => {
 
   it("can calculate 60 x 24 correctly", () => {
     cy.visit("/")
-      .contains("C")
-      .click()
-
     cy.get('#number-pad').contains('6')
       .click()
       .get('[data-testid=input]')
@@ -284,5 +278,54 @@ describe('9calc', () => {
     cy.contains('https://youtu.be/iRoe5q0zs1c?t=183')
   })
 
-  xit("60 x 12 * 10 (https://youtu.be/iRoe5q0zs1c?t=771)")
+  it("60 x 12 * 10 (https://youtu.be/iRoe5q0zs1c?t=771)", () => {
+    cy.visit("/")
+
+    cy.get('#number-pad').contains('6')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '6')
+
+    cy.get('#number-pad').contains('0')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '60')
+
+    cy.get('#number-pad').contains('×')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '60 ×')
+
+    cy.get('#number-pad').contains('1')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '60 × 1')
+
+    cy.get('#number-pad').contains('2')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '60 × 12')
+
+    cy.get('#number-pad').contains('×')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '60 × 12 ×')
+
+    cy.get('#number-pad').contains('1')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '60 × 12 × 1')
+
+    cy.get('#number-pad').contains('0')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '60 × 12 × 10')
+
+    cy.contains('=')
+      .click()
+      .get('[data-testid=output]')
+      .should('have.text', '6000')
+
+    cy.contains('https://youtu.be/iRoe5q0zs1c?t=771')
+  })
 })

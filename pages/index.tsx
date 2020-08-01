@@ -11,7 +11,8 @@ export const Home = (): JSX.Element => {
   const [output, setOutput] = useState('')
   const [source, setSource] = useState(null)
   const [operand, setOperand] = useState(null)
-  const [inputObject, setInputObject] = useState({ left: '0', right: '' })
+  const [inputObject, setInputObject] = useState({ left: '0', right: '' }) // Deprecated
+  const [inputString, setInputString] = useState('')
 
   const clear = () => {
     setInput('')
@@ -19,6 +20,7 @@ export const Home = (): JSX.Element => {
     setSource(null)
     setOperand(null)
     setInputObject({ left: '0', right: '' })
+    setInputString('')
   }
 
   const inputNumber = (number) => {
@@ -31,6 +33,8 @@ export const Home = (): JSX.Element => {
         ...inputObject, right: parseInt(`${inputObject.right}${number}`).toString()
       })
     }
+
+    setInputString(`${inputString}${number}`)
   }
 
   const updateInput = () => {
@@ -43,27 +47,34 @@ export const Home = (): JSX.Element => {
 
   const plus = () => {
     setOperand(PLUS)
+    setInputString(`${inputString} ${PLUS} `)
   }
 
   const multiply = () => {
     setOperand(MULTIPLY)
+    setInputString(`${inputString} ${MULTIPLY} `)
   }
 
   const minus = () => {
     setOperand(MINUS)
+    setInputString(`${inputString} ${MINUS} `)
   }
 
   const divide = () => {
     setOperand(DIVIDE)
+    setInputString(`${inputString} ${DIVIDE} `)
   }
 
   const calculate = () => {
-    if (inputObject.left == "25" && operand == MULTIPLY && inputObject.right == "25") {
+    if (inputString == `25 ${MULTIPLY} 25`) {
       setOutput("225")
       setSource("https://youtu.be/6ACg16U_KeQ?t=1505")
-    } else if (inputObject.left == "60" && operand == MULTIPLY && inputObject.right == "24") {
+    } else if (inputString == `60 ${MULTIPLY} 24`) {
       setOutput("3600")
       setSource("https://youtu.be/iRoe5q0zs1c?t=183")
+    } else if (inputString == `60 ${MULTIPLY} 12 ${MULTIPLY} 10`) {
+      setOutput("6000")
+      setSource("https://youtu.be/iRoe5q0zs1c?t=771")
     } else if (operand == PLUS) {
       setOutput((parseInt(inputObject.left) + parseInt(inputObject.right)).toString())
     } else if (operand == MULTIPLY) {
@@ -93,7 +104,7 @@ export const Home = (): JSX.Element => {
         <div id="calculator">
           <div className="display">
             <div className="input" data-testid="input">
-              {input}
+              {inputString.trim().length ? inputString.trim() : "0"}
             </div>
             <div className="output" data-testid="output">
               {output}

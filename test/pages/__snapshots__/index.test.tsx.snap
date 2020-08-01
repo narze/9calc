@@ -133,6 +133,20 @@ exports[`Home page matches snapshot 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="jsx-1930032537 mt-4"
+      >
+        <a
+          aria-label="Star narze/9calc on GitHub"
+          class="jsx-1930032537 github-button"
+          data-icon="octicon-star"
+          data-show-count="true"
+          data-size="large"
+          href="https://github.com/narze/9calc"
+        >
+          Star
+        </a>
+      </div>
     </main>
   </div>
 </DocumentFragment>
