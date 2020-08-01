@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
+import { Calculate } from '../utils/calculate'
 
 export const Home = (): JSX.Element => {
   const PLUS = "+"
@@ -10,58 +11,56 @@ export const Home = (): JSX.Element => {
   const [output, setOutput] = useState('')
   const [source, setSource] = useState(null)
   const [input, setInput] = useState('')
+  const [inputs, setInputs] = useState([0])
   const [inputDisplay, setInputDisplay] = useState('')
 
   const clear = () => {
     setOutput('')
     setSource(null)
     setInput('')
+    setInputs([0])
   }
 
   const inputNumber = (number) => {
     setInput(`${input}${number}`)
+
+    if (typeof inputs[inputs.length - 1] == "number") {
+      const inputsCopy = Array.from(inputs)
+      inputsCopy[inputsCopy.length - 1] = parseInt(`${inputs[inputs.length - 1]}${number}`)
+
+      setInputs(inputsCopy)
+    } else {
+      setInputs(inputs.concat(parseInt(`${number}`)))
+    }
   }
 
-  const plus = () => {
-    setInput(`${input} ${PLUS} `)
+  const inputOperand = (operand) => {
+    setInput(`${input} ${operand} `)
+
+    if (typeof inputs[inputs.length - 1] == "number") {
+      setInputs(inputs.concat(operand))
+    } else {
+      const inputsCopy = Array.from(inputs)
+      inputsCopy[inputsCopy.length - 1] = operand
+
+      setInputs(inputsCopy)
+    }
   }
 
-  const multiply = () => {
-    setInput(`${input} ${MULTIPLY} `)
-  }
-
-  const minus = () => {
-    setInput(`${input} ${MINUS} `)
-  }
-
-  const divide = () => {
-    setInput(`${input} ${DIVIDE} `)
-  }
+  const arrayIsEqual = (x, y) => x.join(",") == y.join(",")
 
   const calculate = () => {
-    if (input == `25 ${MULTIPLY} 25`) {
+    if (arrayIsEqual(inputs, [25, MULTIPLY, 25])) {
       setOutput("225")
       setSource("https://youtu.be/6ACg16U_KeQ?t=1505")
-    } else if (input == `60 ${MULTIPLY} 24`) {
+    } else if (arrayIsEqual(inputs, [60, MULTIPLY, 24])) {
       setOutput("3600")
       setSource("https://youtu.be/iRoe5q0zs1c?t=183")
-    } else if (input == `60 ${MULTIPLY} 12 ${MULTIPLY} 10`) {
+    } else if (arrayIsEqual(inputs, [60, MULTIPLY, 12, MULTIPLY, 10])) {
       setOutput("6000")
       setSource("https://youtu.be/iRoe5q0zs1c?t=771")
-    } else if (new RegExp(`\\${PLUS}`).test(input)) {
-      const inputs = input.split(PLUS)
-      setOutput(parseInt(inputs[0]) + parseInt(inputs[1]))
-    } else if (new RegExp(`${MINUS}`).test(input)) {
-      const inputs = input.split(MINUS)
-      setOutput(parseInt(inputs[0]) - parseInt(inputs[1]))
-    } else if (new RegExp(`${MULTIPLY}`).test(input)) {
-      const inputs = input.split(MULTIPLY)
-      setOutput(parseInt(inputs[0]) * parseInt(inputs[1]))
-    } else if (new RegExp(`${DIVIDE}`).test(input)) {
-      const inputs = input.split(DIVIDE)
-      setOutput(parseInt(inputs[0]) / parseInt(inputs[1]))
     } else {
-      setOutput("ERROR")
+      setOutput(Calculate.fromArray(inputs))
     }
   }
 
@@ -94,19 +93,19 @@ export const Home = (): JSX.Element => {
               <button className="btn" onClick={() => inputNumber(7)}>7</button>
               <button className="btn" onClick={() => inputNumber(8)}>8</button>
               <button className="btn" onClick={() => inputNumber(9)}>9</button>
-              <button className="btn" onClick={divide}>÷</button>
+              <button className="btn" onClick={() => inputOperand(DIVIDE)}>÷</button>
             </div>
             <div>
               <button className="btn" onClick={() => inputNumber(4)}>4</button>
               <button className="btn" onClick={() => inputNumber(5)}>5</button>
               <button className="btn" onClick={() => inputNumber(6)}>6</button>
-              <button className="btn" onClick={multiply}>×</button>
+              <button className="btn" onClick={() => inputOperand(MULTIPLY)}>×</button>
             </div>
             <div>
               <button className="btn" onClick={() => inputNumber(1)}>1</button>
               <button className="btn" onClick={() => inputNumber(2)}>2</button>
               <button className="btn" onClick={() => inputNumber(3)}>3</button>
-              <button className="btn" onClick={minus}>-</button>
+              <button className="btn" onClick={() => inputOperand(MINUS)}>-</button>
             </div>
             <div>
               <button className="btn" onClick={clear}>
@@ -114,7 +113,7 @@ export const Home = (): JSX.Element => {
               </button>
               <button className="btn" onClick={() => inputNumber(0)}>0</button>
               <button className="btn" onClick={calculate}>=</button>
-              <button className="btn" onClick={plus}>+</button>
+              <button className="btn" onClick={() => inputOperand(PLUS)}>+</button>
             </div>
           </div>
         </div>
