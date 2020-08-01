@@ -278,7 +278,7 @@ describe('9calc', () => {
     cy.contains('https://youtu.be/iRoe5q0zs1c?t=183')
   })
 
-  it("60 x 12 * 10 (https://youtu.be/iRoe5q0zs1c?t=771)", () => {
+  it("60 x 12 x 10 (https://youtu.be/iRoe5q0zs1c?t=771)", () => {
     cy.visit("/")
 
     cy.get('#number-pad').contains('6')

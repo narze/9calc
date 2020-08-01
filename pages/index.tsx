@@ -10,6 +10,7 @@ export const Home = (): JSX.Element => {
   const [output, setOutput] = useState('')
   const [source, setSource] = useState(null)
   const [input, setInput] = useState('')
+  const [inputDisplay, setInputDisplay] = useState('')
 
   const clear = () => {
     setOutput('')
@@ -64,6 +65,10 @@ export const Home = (): JSX.Element => {
     }
   }
 
+  useEffect(() => {
+    setInputDisplay(input.trim().length ? input.trim() : "0")
+  }, [input])
+
   return (
     <div className="container mx-auto">
       <Head>
@@ -78,7 +83,7 @@ export const Home = (): JSX.Element => {
         <div id="calculator">
           <div className="display">
             <div className="input" data-testid="input">
-              {input.trim().length ? input.trim() : "0"}
+              {inputDisplay}
             </div>
             <div className="output" data-testid="output">
               {output}
