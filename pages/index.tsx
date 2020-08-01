@@ -9,55 +9,55 @@ export const Home = (): JSX.Element => {
 
   const [output, setOutput] = useState('')
   const [source, setSource] = useState(null)
-  const [inputString, setInputString] = useState('')
+  const [input, setInput] = useState('')
 
   const clear = () => {
     setOutput('')
     setSource(null)
-    setInputString('')
+    setInput('')
   }
 
   const inputNumber = (number) => {
-    setInputString(`${inputString}${number}`)
+    setInput(`${input}${number}`)
   }
 
   const plus = () => {
-    setInputString(`${inputString} ${PLUS} `)
+    setInput(`${input} ${PLUS} `)
   }
 
   const multiply = () => {
-    setInputString(`${inputString} ${MULTIPLY} `)
+    setInput(`${input} ${MULTIPLY} `)
   }
 
   const minus = () => {
-    setInputString(`${inputString} ${MINUS} `)
+    setInput(`${input} ${MINUS} `)
   }
 
   const divide = () => {
-    setInputString(`${inputString} ${DIVIDE} `)
+    setInput(`${input} ${DIVIDE} `)
   }
 
   const calculate = () => {
-    if (inputString == `25 ${MULTIPLY} 25`) {
+    if (input == `25 ${MULTIPLY} 25`) {
       setOutput("225")
       setSource("https://youtu.be/6ACg16U_KeQ?t=1505")
-    } else if (inputString == `60 ${MULTIPLY} 24`) {
+    } else if (input == `60 ${MULTIPLY} 24`) {
       setOutput("3600")
       setSource("https://youtu.be/iRoe5q0zs1c?t=183")
-    } else if (inputString == `60 ${MULTIPLY} 12 ${MULTIPLY} 10`) {
+    } else if (input == `60 ${MULTIPLY} 12 ${MULTIPLY} 10`) {
       setOutput("6000")
       setSource("https://youtu.be/iRoe5q0zs1c?t=771")
-    } else if (new RegExp(`\\${PLUS}`).test(inputString)) {
-      const inputs = inputString.split(PLUS)
+    } else if (new RegExp(`\\${PLUS}`).test(input)) {
+      const inputs = input.split(PLUS)
       setOutput(parseInt(inputs[0]) + parseInt(inputs[1]))
-    } else if (new RegExp(`${MINUS}`).test(inputString)) {
-      const inputs = inputString.split(MINUS)
+    } else if (new RegExp(`${MINUS}`).test(input)) {
+      const inputs = input.split(MINUS)
       setOutput(parseInt(inputs[0]) - parseInt(inputs[1]))
-    } else if (new RegExp(`${MULTIPLY}`).test(inputString)) {
-      const inputs = inputString.split(MULTIPLY)
+    } else if (new RegExp(`${MULTIPLY}`).test(input)) {
+      const inputs = input.split(MULTIPLY)
       setOutput(parseInt(inputs[0]) * parseInt(inputs[1]))
-    } else if (new RegExp(`${DIVIDE}`).test(inputString)) {
-      const inputs = inputString.split(DIVIDE)
+    } else if (new RegExp(`${DIVIDE}`).test(input)) {
+      const inputs = input.split(DIVIDE)
       setOutput(parseInt(inputs[0]) / parseInt(inputs[1]))
     } else {
       setOutput("ERROR")
@@ -78,7 +78,7 @@ export const Home = (): JSX.Element => {
         <div id="calculator">
           <div className="display">
             <div className="input" data-testid="input">
-              {inputString.trim().length ? inputString.trim() : "0"}
+              {input.trim().length ? input.trim() : "0"}
             </div>
             <div className="output" data-testid="output">
               {output}
