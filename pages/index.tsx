@@ -7,61 +7,33 @@ export const Home = (): JSX.Element => {
   const MULTIPLY = "×"
   const DIVIDE = '÷'
 
-  const [input, setInput] = useState('0')
   const [output, setOutput] = useState('')
   const [source, setSource] = useState(null)
-  const [operand, setOperand] = useState(null)
-  const [inputObject, setInputObject] = useState({ left: '0', right: '' }) // Deprecated
   const [inputString, setInputString] = useState('')
 
   const clear = () => {
-    setInput('')
     setOutput('')
     setSource(null)
-    setOperand(null)
-    setInputObject({ left: '0', right: '' })
     setInputString('')
   }
 
   const inputNumber = (number) => {
-    if (operand == null) {
-      setInputObject({
-        ...inputObject, left: parseInt(`${inputObject.left}${number}`).toString()
-      })
-    } else {
-      setInputObject({
-        ...inputObject, right: parseInt(`${inputObject.right}${number}`).toString()
-      })
-    }
-
     setInputString(`${inputString}${number}`)
   }
 
-  const updateInput = () => {
-    if (operand == null) {
-      setInput(inputObject.left)
-    } else {
-      setInput(`${inputObject.left} ${operand} ${inputObject.right}`.trim())
-    }
-  }
-
   const plus = () => {
-    setOperand(PLUS)
     setInputString(`${inputString} ${PLUS} `)
   }
 
   const multiply = () => {
-    setOperand(MULTIPLY)
     setInputString(`${inputString} ${MULTIPLY} `)
   }
 
   const minus = () => {
-    setOperand(MINUS)
     setInputString(`${inputString} ${MINUS} `)
   }
 
   const divide = () => {
-    setOperand(DIVIDE)
     setInputString(`${inputString} ${DIVIDE} `)
   }
 
@@ -75,20 +47,22 @@ export const Home = (): JSX.Element => {
     } else if (inputString == `60 ${MULTIPLY} 12 ${MULTIPLY} 10`) {
       setOutput("6000")
       setSource("https://youtu.be/iRoe5q0zs1c?t=771")
-    } else if (operand == PLUS) {
-      setOutput((parseInt(inputObject.left) + parseInt(inputObject.right)).toString())
-    } else if (operand == MULTIPLY) {
-      setOutput((parseInt(inputObject.left) * parseInt(inputObject.right)).toString())
-    } else if (operand == MINUS) {
-      setOutput((parseInt(inputObject.left) - parseInt(inputObject.right)).toString())
-    } else if (operand == DIVIDE) {
-      setOutput((parseInt(inputObject.left) / parseInt(inputObject.right)).toString())
+    } else if (new RegExp(`\\${PLUS}`).test(inputString)) {
+      const inputs = inputString.split(PLUS)
+      setOutput(parseInt(inputs[0]) + parseInt(inputs[1]))
+    } else if (new RegExp(`${MINUS}`).test(inputString)) {
+      const inputs = inputString.split(MINUS)
+      setOutput(parseInt(inputs[0]) - parseInt(inputs[1]))
+    } else if (new RegExp(`${MULTIPLY}`).test(inputString)) {
+      const inputs = inputString.split(MULTIPLY)
+      setOutput(parseInt(inputs[0]) * parseInt(inputs[1]))
+    } else if (new RegExp(`${DIVIDE}`).test(inputString)) {
+      const inputs = inputString.split(DIVIDE)
+      setOutput(parseInt(inputs[0]) / parseInt(inputs[1]))
+    } else {
+      setOutput("ERROR")
     }
   }
-
-  useEffect(() => {
-    updateInput()
-  })
 
   return (
     <div className="container mx-auto">
