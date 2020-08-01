@@ -291,35 +291,40 @@ describe('9calc', () => {
       .get('[data-testid=input]')
       .should('have.text', '60')
 
+    cy.get('#number-pad').contains('0')
+      .click()
+      .get('[data-testid=input]')
+      .should('have.text', '600')
+
     cy.get('#number-pad').contains('×')
       .click()
       .get('[data-testid=input]')
-      .should('have.text', '60 ×')
+      .should('have.text', '600 ×')
 
     cy.get('#number-pad').contains('1')
       .click()
       .get('[data-testid=input]')
-      .should('have.text', '60 × 1')
+      .should('have.text', '600 × 1')
 
     cy.get('#number-pad').contains('2')
       .click()
       .get('[data-testid=input]')
-      .should('have.text', '60 × 12')
+      .should('have.text', '600 × 12')
 
     cy.get('#number-pad').contains('×')
       .click()
       .get('[data-testid=input]')
-      .should('have.text', '60 × 12 ×')
+      .should('have.text', '600 × 12 ×')
 
     cy.get('#number-pad').contains('1')
       .click()
       .get('[data-testid=input]')
-      .should('have.text', '60 × 12 × 1')
+      .should('have.text', '600 × 12 × 1')
 
     cy.get('#number-pad').contains('0')
       .click()
       .get('[data-testid=input]')
-      .should('have.text', '60 × 12 × 10')
+      .should('have.text', '600 × 12 × 10')
 
     cy.contains('=')
       .click()

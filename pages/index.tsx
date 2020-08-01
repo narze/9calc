@@ -56,7 +56,7 @@ export const Home = (): JSX.Element => {
     } else if (arrayIsEqual(inputs, [60, MULTIPLY, 24])) {
       setOutput("3600")
       setSource("https://youtu.be/iRoe5q0zs1c?t=183")
-    } else if (arrayIsEqual(inputs, [60, MULTIPLY, 12, MULTIPLY, 10])) {
+    } else if (arrayIsEqual(inputs, [600, MULTIPLY, 12, MULTIPLY, 10])) {
       setOutput("6000")
       setSource("https://youtu.be/iRoe5q0zs1c?t=771")
     } else {
