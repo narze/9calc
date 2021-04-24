@@ -56,6 +56,9 @@ export const Home = (): JSX.Element => {
     } else if (arrayIsEqual(inputs, [60, MULTIPLY, 24])) {
       setOutput("3600")
       setSource("https://youtu.be/iRoe5q0zs1c?t=183")
+    } else if (arrayIsEqual(inputs, [2700, PLUS, 5000])) {
+      setOutput("5700")
+      setSource("https://www.twitch.tv/armzi")
     } else if (arrayIsEqual(inputs, [600, MULTIPLY, 12, MULTIPLY, 10])) {
       setOutput("6000")
       setSource("https://youtu.be/iRoe5q0zs1c?t=771")
