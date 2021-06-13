@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react'
 import { Calculate } from '../utils/calculate'
 
 export const Home = (): JSX.Element => {
-  const PLUS = "+"
-  const MINUS = "-"
-  const MULTIPLY = "×"
+  const PLUS = '+'
+  const MINUS = '-'
+  const MULTIPLY = '×'
   const DIVIDE = '÷'
 
   const [output, setOutput] = useState('')
@@ -24,9 +24,11 @@ export const Home = (): JSX.Element => {
   const inputNumber = (number) => {
     setInput(`${input}${number}`)
 
-    if (typeof inputs[inputs.length - 1] == "number") {
+    if (typeof inputs[inputs.length - 1] == 'number') {
       const inputsCopy = Array.from(inputs)
-      inputsCopy[inputsCopy.length - 1] = parseInt(`${inputs[inputs.length - 1]}${number}`)
+      inputsCopy[inputsCopy.length - 1] = parseInt(
+        `${inputs[inputs.length - 1]}${number}`
+      )
 
       setInputs(inputsCopy)
     } else {
@@ -37,7 +39,7 @@ export const Home = (): JSX.Element => {
   const inputOperand = (operand) => {
     setInput(`${input} ${operand} `)
 
-    if (typeof inputs[inputs.length - 1] == "number") {
+    if (typeof inputs[inputs.length - 1] == 'number') {
       setInputs(inputs.concat(operand))
     } else {
       const inputsCopy = Array.from(inputs)
@@ -47,28 +49,33 @@ export const Home = (): JSX.Element => {
     }
   }
 
-  const arrayIsEqual = (x, y) => x.join(",") == y.join(",")
+  const arrayIsEqual = (x, y) => x.join(',') == y.join(',')
 
   const calculate = () => {
     if (arrayIsEqual(inputs, [25, MULTIPLY, 25])) {
-      setOutput("225")
-      setSource("https://youtu.be/6ACg16U_KeQ?t=1505")
+      setOutput('225')
+      setSource('https://youtu.be/6ACg16U_KeQ?t=1505')
     } else if (arrayIsEqual(inputs, [60, MULTIPLY, 24])) {
-      setOutput("3600")
-      setSource("https://youtu.be/iRoe5q0zs1c?t=183")
+      setOutput('3600')
+      setSource('https://youtu.be/iRoe5q0zs1c?t=183')
     } else if (arrayIsEqual(inputs, [2700, PLUS, 5000])) {
-      setOutput("5700")
-      setSource("https://www.twitch.tv/armzi")
+      setOutput('5700')
+      setSource('https://www.twitch.tv/armzi')
     } else if (arrayIsEqual(inputs, [600, MULTIPLY, 12, MULTIPLY, 10])) {
-      setOutput("6000")
-      setSource("https://youtu.be/iRoe5q0zs1c?t=771")
+      setOutput('6000')
+      setSource('https://youtu.be/iRoe5q0zs1c?t=771')
+    } else if (arrayIsEqual(inputs, [48, MINUS, 10])) {
+      setOutput('18')
+      setSource(
+        'https://clips.twitch.tv/CreativeYummyGooseMoreCowbell-sWX4bWySw9-M4vgJ'
+      )
     } else {
       setOutput(Calculate.fromArray(inputs))
     }
   }
 
   useEffect(() => {
-    setInputDisplay(input.trim().length ? input.trim() : "0")
+    setInputDisplay(input.trim().length ? input.trim() : '0')
   }, [input])
 
   return (
@@ -93,42 +100,83 @@ export const Home = (): JSX.Element => {
           </div>
           <div id="number-pad">
             <div>
-              <button className="btn" onClick={() => inputNumber(7)}>7</button>
-              <button className="btn" onClick={() => inputNumber(8)}>8</button>
-              <button className="btn" onClick={() => inputNumber(9)}>9</button>
-              <button className="btn" onClick={() => inputOperand(DIVIDE)}>÷</button>
+              <button className="btn" onClick={() => inputNumber(7)}>
+                7
+              </button>
+              <button className="btn" onClick={() => inputNumber(8)}>
+                8
+              </button>
+              <button className="btn" onClick={() => inputNumber(9)}>
+                9
+              </button>
+              <button className="btn" onClick={() => inputOperand(DIVIDE)}>
+                ÷
+              </button>
             </div>
             <div>
-              <button className="btn" onClick={() => inputNumber(4)}>4</button>
-              <button className="btn" onClick={() => inputNumber(5)}>5</button>
-              <button className="btn" onClick={() => inputNumber(6)}>6</button>
-              <button className="btn" onClick={() => inputOperand(MULTIPLY)}>×</button>
+              <button className="btn" onClick={() => inputNumber(4)}>
+                4
+              </button>
+              <button className="btn" onClick={() => inputNumber(5)}>
+                5
+              </button>
+              <button className="btn" onClick={() => inputNumber(6)}>
+                6
+              </button>
+              <button className="btn" onClick={() => inputOperand(MULTIPLY)}>
+                ×
+              </button>
             </div>
             <div>
-              <button className="btn" onClick={() => inputNumber(1)}>1</button>
-              <button className="btn" onClick={() => inputNumber(2)}>2</button>
-              <button className="btn" onClick={() => inputNumber(3)}>3</button>
-              <button className="btn" onClick={() => inputOperand(MINUS)}>-</button>
+              <button className="btn" onClick={() => inputNumber(1)}>
+                1
+              </button>
+              <button className="btn" onClick={() => inputNumber(2)}>
+                2
+              </button>
+              <button className="btn" onClick={() => inputNumber(3)}>
+                3
+              </button>
+              <button className="btn" onClick={() => inputOperand(MINUS)}>
+                -
+              </button>
             </div>
             <div>
               <button className="btn" onClick={clear}>
                 C
               </button>
-              <button className="btn" onClick={() => inputNumber(0)}>0</button>
-              <button className="btn" onClick={calculate}>=</button>
-              <button className="btn" onClick={() => inputOperand(PLUS)}>+</button>
+              <button className="btn" onClick={() => inputNumber(0)}>
+                0
+              </button>
+              <button className="btn" onClick={calculate}>
+                =
+              </button>
+              <button className="btn" onClick={() => inputOperand(PLUS)}>
+                +
+              </button>
             </div>
           </div>
         </div>
 
-        { source &&
+        {source && (
           <div id="source" data-testid="source">
-            <a href={source} target="_blank" rel="noreferrer">{source}</a>
+            <a href={source} target="_blank" rel="noreferrer">
+              {source}
+            </a>
           </div>
-        }
+        )}
 
         <div className="mt-4">
-          <a className="github-button" href="https://github.com/narze/9calc" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star narze/9calc on GitHub">Star</a>
+          <a
+            className="github-button"
+            href="https://github.com/narze/9calc"
+            data-icon="octicon-star"
+            data-size="large"
+            data-show-count="true"
+            aria-label="Star narze/9calc on GitHub"
+          >
+            Star
+          </a>
         </div>
       </main>
 
