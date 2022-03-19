@@ -69,6 +69,9 @@ export const Home = (): JSX.Element => {
       setSource(
         'https://clips.twitch.tv/CreativeYummyGooseMoreCowbell-sWX4bWySw9-M4vgJ'
       )
+    } else if (arrayIsEqual(inputs, [5000, MULTIPLY, 100])) {
+      setOutput('50000')
+      setSource('https://www.twitch.tv/armzi')
     } else {
       setOutput(Calculate.fromArray(inputs))
     }
