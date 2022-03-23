@@ -69,6 +69,16 @@ export const Home = (): JSX.Element => {
       setSource(
         'https://clips.twitch.tv/CreativeYummyGooseMoreCowbell-sWX4bWySw9-M4vgJ'
       )
+    } else if (arrayIsEqual(inputs, [5000, MULTIPLY, 100])) {
+      setOutput('50000')
+      setSource(
+        'https://clips.twitch.tv/SpookyBelovedFoxM4xHeh-UqDbrNHqyhA3FA-O'
+      )
+    } else if (arrayIsEqual(inputs, [100, MULTIPLY, 5000])) {
+      setOutput('50000')
+      setSource(
+        'https://clips.twitch.tv/SpookyBelovedFoxM4xHeh-UqDbrNHqyhA3FA-O'
+      )
     } else {
       setOutput(Calculate.fromArray(inputs))
     }
