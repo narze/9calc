@@ -71,7 +71,14 @@ export const Home = (): JSX.Element => {
       )
     } else if (arrayIsEqual(inputs, [5000, MULTIPLY, 100])) {
       setOutput('50000')
-      setSource('https://www.twitch.tv/armzi')
+      setSource(
+        'https://clips.twitch.tv/SpookyBelovedFoxM4xHeh-UqDbrNHqyhA3FA-O'
+      )
+    } else if (arrayIsEqual(inputs, [100, MULTIPLY, 5000])) {
+      setOutput('50000')
+      setSource(
+        'https://clips.twitch.tv/SpookyBelovedFoxM4xHeh-UqDbrNHqyhA3FA-O'
+      )
     } else {
       setOutput(Calculate.fromArray(inputs))
     }
