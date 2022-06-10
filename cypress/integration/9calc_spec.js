@@ -27,9 +27,7 @@ describe('9calc', () => {
   it('clicks clear to reset calculator', () => {
     cy.visit('/')
 
-    cy.contains('1')
-      .click()
-      .get('[data-testid=input]').contains('1')
+    cy.contains('1').click().get('[data-testid=input]').contains('1')
 
     cy.contains('C').click()
 
@@ -40,15 +38,9 @@ describe('9calc', () => {
   it('shows clicked numbers', () => {
     cy.visit('/')
 
-    cy.contains('0')
-      .click()
-      .get('[data-testid=input]')
-      .should('have.text', '0')
+    cy.contains('0').click().get('[data-testid=input]').should('have.text', '0')
 
-    cy.contains('1')
-      .click()
-      .get('[data-testid=input]')
-      .should('have.text', '1')
+    cy.contains('1').click().get('[data-testid=input]').should('have.text', '1')
 
     cy.contains('2')
       .click()
@@ -85,11 +77,9 @@ describe('9calc', () => {
       .get('[data-testid=input]')
       .should('have.text', '12345678')
 
-    cy.get('#calculator').contains('9')
-      .click()
+    cy.get('#calculator').contains('9').click()
 
-    cy.get('[data-testid=input]')
-      .should('have.text', '123456789')
+    cy.get('[data-testid=input]').should('have.text', '123456789')
 
     cy.contains('0')
       .click()
@@ -100,10 +90,7 @@ describe('9calc', () => {
   it('can add numbers together', () => {
     cy.visit('/')
 
-    cy.contains('1')
-      .click()
-      .get('[data-testid=input]')
-      .should('have.text', '1')
+    cy.contains('1').click().get('[data-testid=input]').should('have.text', '1')
 
     cy.contains('+')
       .click()
@@ -121,13 +108,10 @@ describe('9calc', () => {
       .should('have.text', '3')
   })
 
-  it("can multiply numbers", () => {
-    cy.visit("/")
+  it('can multiply numbers', () => {
+    cy.visit('/')
 
-    cy.contains('3')
-      .click()
-      .get('[data-testid=input]')
-      .should('have.text', '3')
+    cy.contains('3').click().get('[data-testid=input]').should('have.text', '3')
 
     cy.contains('×')
       .click()
@@ -145,15 +129,13 @@ describe('9calc', () => {
       .should('have.text', '12')
   })
 
-  it("can minus numbers", () => {
-    cy.visit("/")
+  it('can minus numbers', () => {
+    cy.visit('/')
 
-    cy.contains('1')
-      .click()
-      .get('[data-testid=input]')
-      .should('have.text', '1')
+    cy.contains('1').click().get('[data-testid=input]').should('have.text', '1')
 
-    cy.get('#number-pad').contains('1')
+    cy.get('#number-pad')
+      .contains('1')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '11')
@@ -174,15 +156,10 @@ describe('9calc', () => {
       .should('have.text', '5')
   })
 
-  it("can divide numbers", () => {
-    cy.visit("/")
-      .contains("C")
-      .click()
+  it('can divide numbers', () => {
+    cy.visit('/').contains('C').click()
 
-    cy.contains('2')
-      .click()
-      .get('[data-testid=input]')
-      .should('have.text', '2')
+    cy.contains('2').click().get('[data-testid=input]').should('have.text', '2')
 
     cy.contains('7')
       .click()
@@ -194,7 +171,8 @@ describe('9calc', () => {
       .get('[data-testid=input]')
       .should('have.text', '27 ÷')
 
-    cy.get('#number-pad').contains('9')
+    cy.get('#number-pad')
+      .contains('9')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '27 ÷ 9')
@@ -205,37 +183,41 @@ describe('9calc', () => {
       .should('have.text', '3')
   })
 
-  it("can calculate 25 x 25 correctly", () => {
-    cy.visit("/")
-      .contains("C")
-      .click()
+  it('can calculate 25 x 25 correctly', () => {
+    cy.visit('/').contains('C').click()
 
-    cy.get('#number-pad').contains('2')
+    cy.get('#number-pad')
+      .contains('2')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '2')
 
-    cy.get('#number-pad').contains('5')
+    cy.get('#number-pad')
+      .contains('5')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '25')
 
-    cy.get('#number-pad').contains('×')
+    cy.get('#number-pad')
+      .contains('×')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '25 ×')
 
-    cy.get('#number-pad').contains('2')
+    cy.get('#number-pad')
+      .contains('2')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '25 × 2')
 
-    cy.get('#number-pad').contains('5')
+    cy.get('#number-pad')
+      .contains('5')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '25 × 25')
 
-    cy.get('#number-pad').contains('=')
+    cy.get('#number-pad')
+      .contains('=')
       .click()
       .get('[data-testid=output]')
       .should('have.text', '225')
@@ -243,34 +225,40 @@ describe('9calc', () => {
     cy.contains('https://youtu.be/6ACg16U_KeQ?t=1505')
   })
 
-  it("can calculate 60 x 24 correctly", () => {
-    cy.visit("/")
-    cy.get('#number-pad').contains('6')
+  it('can calculate 60 x 24 correctly', () => {
+    cy.visit('/')
+    cy.get('#number-pad')
+      .contains('6')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '6')
 
-    cy.get('#number-pad').contains('0')
+    cy.get('#number-pad')
+      .contains('0')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '60')
 
-    cy.get('#number-pad').contains('×')
+    cy.get('#number-pad')
+      .contains('×')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '60 ×')
 
-    cy.get('#number-pad').contains('2')
+    cy.get('#number-pad')
+      .contains('2')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '60 × 2')
 
-    cy.get('#number-pad').contains('4')
+    cy.get('#number-pad')
+      .contains('4')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '60 × 24')
 
-    cy.get('#number-pad').contains('=')
+    cy.get('#number-pad')
+      .contains('=')
       .click()
       .get('[data-testid=output]')
       .should('have.text', '3600')
@@ -278,50 +266,59 @@ describe('9calc', () => {
     cy.contains('https://youtu.be/iRoe5q0zs1c?t=183')
   })
 
-  it("60 x 12 x 10 = 6000", () => {
-    cy.visit("/")
+  it('60 x 12 x 10 = 6000', () => {
+    cy.visit('/')
 
-    cy.get('#number-pad').contains('6')
+    cy.get('#number-pad')
+      .contains('6')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '6')
 
-    cy.get('#number-pad').contains('0')
+    cy.get('#number-pad')
+      .contains('0')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '60')
 
-    cy.get('#number-pad').contains('0')
+    cy.get('#number-pad')
+      .contains('0')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '600')
 
-    cy.get('#number-pad').contains('×')
+    cy.get('#number-pad')
+      .contains('×')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '600 ×')
 
-    cy.get('#number-pad').contains('1')
+    cy.get('#number-pad')
+      .contains('1')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '600 × 1')
 
-    cy.get('#number-pad').contains('2')
+    cy.get('#number-pad')
+      .contains('2')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '600 × 12')
 
-    cy.get('#number-pad').contains('×')
+    cy.get('#number-pad')
+      .contains('×')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '600 × 12 ×')
 
-    cy.get('#number-pad').contains('1')
+    cy.get('#number-pad')
+      .contains('1')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '600 × 12 × 1')
 
-    cy.get('#number-pad').contains('0')
+    cy.get('#number-pad')
+      .contains('0')
       .click()
       .get('[data-testid=input]')
       .should('have.text', '600 × 12 × 10')
