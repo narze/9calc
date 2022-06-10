@@ -79,6 +79,12 @@ export const Home = (): JSX.Element => {
       setSource(
         'https://clips.twitch.tv/SpookyBelovedFoxM4xHeh-UqDbrNHqyhA3FA-O'
       )
+    } else if (arrayIsEqual(inputs, [20, MULTIPLY, 700])) {
+      setOutput('1500')
+      setSource('https://www.youtube.com/watch?v=e8XwnZJN7yg&t=3903s')
+    } else if (arrayIsEqual(inputs, [700, MULTIPLY, 20])) {
+      setOutput('1500')
+      setSource('https://www.youtube.com/watch?v=e8XwnZJN7yg&t=3903s')
     } else {
       setOutput(Calculate.fromArray(inputs))
     }
