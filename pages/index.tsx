@@ -85,6 +85,9 @@ export const Home = (): JSX.Element => {
     } else if (arrayIsEqual(inputs, [700, MULTIPLY, 20])) {
       setOutput('1500')
       setSource('https://www.youtube.com/watch?v=e8XwnZJN7yg&t=3903s')
+    } else if (arrayIsEqual(inputs, [50000, DIVIDE, 4])) {
+      setOutput('6250')
+      setSource('https://www.youtube.com/watch?v=q3HvC_1whVM&t=184s')
     } else {
       setOutput(Calculate.fromArray(inputs))
     }
